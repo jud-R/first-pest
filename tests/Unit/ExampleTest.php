@@ -2,6 +2,15 @@
 
 use App\Models\User;
 
+
+beforeAll(function(){
+    dumpHelloWorld();
+});
+
+beforeEach(function(){
+    User::factory(10)->create();
+});
+
 it('works', function(){
     $this->assertTrue(true);
 });
@@ -15,10 +24,19 @@ it('expects 10 to be greater than 5', function() {
 });
 
 it('expects that 10 users are created', function() {
-    User::factory(10)->create();
 
     expect(User::count())->toEqual(10);
     expect(User::all())->toHaveCount(10);
+});
 
-    dumpHelloWorld();
+it('expects that 10 users are created 2', function() {
+
+    expect(User::count())->toEqual(10);
+    expect(User::all())->toHaveCount(10);
+});
+
+it('expects that 10 users are created 3', function() {
+
+    expect(User::count())->toEqual(10);
+    expect(User::all())->toHaveCount(10);
 });
