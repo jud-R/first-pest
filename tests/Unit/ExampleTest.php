@@ -40,3 +40,15 @@ it('expects that 10 users are created 3', function() {
     expect(User::count())->toEqual(10);
     expect(User::all())->toHaveCount(10);
 });
+
+it('test colors', function($color){
+    expect($color)->toBeIn(['green', 'yellow', 'red', 'blue', 'purple']);
+})->with([
+    'green',
+    'purple',
+    'red',
+]);
+
+it('test colors with Datasets', function($color){
+    expect($color)->toBeIn(['green', 'yellow', 'red', 'blue', 'purple']);
+})->with('colors2');
